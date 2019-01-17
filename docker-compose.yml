@@ -1,0 +1,14 @@
+version: '2'
+services:
+  db:
+    hostname: db
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=scraper
+      - MYSQL_PASSWORD=scraper
+      - MYSQL_DATABASE=scraper
+    volumes:
+      - ./docker/mysql_init_scripts:/docker-entrypoint-initdb.d/
+    ports:
+      - "3306:3306"
