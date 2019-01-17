@@ -1,4 +1,5 @@
 import sys
+import logging
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from sqlalchemy.engine import create_engine
@@ -6,6 +7,8 @@ from sqlalchemy.engine import create_engine
 from crawler.spiders.generic import GenericSpider
 
 config = get_project_settings()
+# hide logs
+# logging.getLogger('scrapy').propagate = False
 
 
 def main(_id):
@@ -17,7 +20,8 @@ def main(_id):
 	process = CrawlerProcess(config)
 	process.crawl(GenericSpider, connection=connection, url_id=_id)
 	process.start()
-
+	with open('response.txt') as response:
+		print(response.read())
 
 if __name__ == '__main__':
 	try:

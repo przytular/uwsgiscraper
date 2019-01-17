@@ -3,4 +3,5 @@ class ItemCollectorPipeline(object):
         self.ids_seen = set()
 
     def process_item(self, item, spider):
-        print(item)
+        with open('response.txt', 'w') as file:
+            file.write(item['body'])
