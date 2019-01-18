@@ -7,8 +7,6 @@ from sqlalchemy.engine import create_engine
 from crawler.spiders.generic import GenericSpider
 
 config = get_project_settings()
-# hide logs
-# logging.getLogger('scrapy').propagate = False
 
 
 def main(_id):
