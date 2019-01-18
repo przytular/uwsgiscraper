@@ -20,3 +20,8 @@ Scrapy with uWSGI service
 ```sh
     $ uwsgi --http 0.0.0.0:9000 --wsgi-file uwsgi/handler.py --touch-reload=uwsgi/uwsgi.touch
 ```
+
+### Restart service
+```sh
+    $ touch uwsgi/uwsgi.touch
+```
