@@ -25,7 +25,7 @@ def application(env, start_response):
     process = subprocess.Popen(['python3', 'start.py', uri, params],
         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     data, logs = process.communicate()
-
+    # print(logs)
     start_response('200 OK', [('Content-Type','application/json')])
 
     with open('response.txt', 'r') as f:
